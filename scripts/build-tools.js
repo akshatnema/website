@@ -10,7 +10,7 @@ const buildTools = async () => {
   try {
     let githubExtractData = await getData();
     let automatedTools = await convertTools(githubExtractData);
-    fs.writeFileSync(
+    await fs.writeFileSync(
       resolve(__dirname, '../config', 'tools-automated.json'),
       JSON.stringify(automatedTools, null, '  ')
     );

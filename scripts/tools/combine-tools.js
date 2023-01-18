@@ -112,11 +112,11 @@ const combineTools = async (automatedTools, manualTools) => {
         }
         finalTools[key].toolsList = finalToolsList
     }
-    fs.writeFileSync(
+    await fs.writeFileSync(
         resolve(__dirname, '../../config', 'tools.json'),
         JSON.stringify(finalTools)
     );
-    fs.writeFileSync(
+    await fs.writeFileSync(
         resolve(__dirname, '../../config', 'all-tags.json'),
         JSON.stringify({languages: languageList, technologies: technologyList}),
     )
