@@ -9,6 +9,10 @@ const { resolve } = require('path');
 const buildTools = async () => {
   try {
     let githubExtractData = await getData();
+    fs.writeFileSync(
+      resolve(__dirname, '../config', 'github-data.json'),
+      JSON.stringify(githubExtractData, null, '  ')
+    );
     let automatedTools = await convertTools(githubExtractData);
     fs.writeFileSync(
       resolve(__dirname, '../config', 'tools-automated.json'),

@@ -11,6 +11,7 @@ const getData = async () => {
         },
       }
     );
+    console.log(result.data)
     return result.data;
   } catch (err) {
     console.log(err);
