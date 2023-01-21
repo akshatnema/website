@@ -14,7 +14,7 @@ const getData = async () => {
     // );
     const result = await request("GET /search/code?q=filename:{query}", {
       headers: {
-        authorization: `token ${process.env.GITHUB_TOKEN}`,
+        authorization: `token ${process.env.GH_TOKEN}`,
       },
       query: ".asyncapi-tool"
     });
