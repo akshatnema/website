@@ -24,12 +24,12 @@ const getData = async () => {
     const octokit = new Octokit({
       auth: `token ${process.env.GITHUB_TOKEN}`
     })
-    const result = await octokit.rest.search.code({
+    const { data: { items } } = await octokit.rest.search.code({
       q: `filename:.asyncapi-tool`
     });
 
-    console.log(JSON.stringify(result, null, 2))
-    return result.data;
+    console.log(JSON.stringify(items, null, 2))
+    return items;
   } catch (err) {
     console.log(err);
     throw err;
