@@ -18,7 +18,7 @@ const getData = async () => {
       },
       query: ".asyncapi-tool"
     });
-    console.log(result)
+    console.log(JSON.stringify(result, null, 2))
     return result.data;
   } catch (err) {
     console.log(err);
