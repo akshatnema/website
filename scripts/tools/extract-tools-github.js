@@ -20,7 +20,8 @@ const getData = async () => {
     //   },
     //   query: ".asyncapi-tool"
     // });
-
+    
+    console.log(process.env.GH_TOKEN)
     const octokit = new Octokit({
       auth: `${process.env.GH_TOKEN}`
     })
