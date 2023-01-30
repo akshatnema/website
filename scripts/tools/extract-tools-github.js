@@ -1,5 +1,6 @@
 const axios = require('axios');
 const {request} = require('@octokit/request')
+const {Octokit} = require('@octokit/rest')
 
 const getData = async () => {
   try {
@@ -12,12 +13,21 @@ const getData = async () => {
     //     },
     //   }
     // );
-    const result = await request("GET /search/code?q=filename:{query}", {
-      headers: {
-        authorization: `token ${process.env.GITHUB_TOKEN}`,
-      },
-      query: ".asyncapi-tool"
+
+    // const result = await request("GET /search/code?q=filename:{query}", {
+    //   headers: {
+    //     authorization: `token ${process.env.GITHUB_TOKEN}`,
+    //   },
+    //   query: ".asyncapi-tool"
+    // });
+
+    const octokit = new Octokit({
+      auth: `${process.env.GH_TOKEN}`
+    })
+    const result = await octokit.rest.search.code({
+      q: `filename:.asyncapi-tool`
     });
+
     console.log(JSON.stringify(result, null, 2))
     return result.data;
   } catch (err) {
