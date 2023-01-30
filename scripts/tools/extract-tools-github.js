@@ -22,7 +22,7 @@ const getData = async () => {
     // });
     
     const octokit = new Octokit({
-      auth: `token ${process.env.GH_TOKEN}`
+      auth: `token ${process.env.GITHUB_TOKEN}`
     })
     const result = await octokit.rest.search.code({
       q: `filename:.asyncapi-tool`
