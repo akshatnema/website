@@ -13,3 +13,5 @@ yarn.lock
 meetings.json
 .netlify
 .env
+.nyc_output
+coverage

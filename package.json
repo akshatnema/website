@@ -19,6 +19,15 @@
     "cypress": "cypress open",
     "cypress-run": "cypress run"
   },
+  "nyc": {
+    "exclude": [
+      ".next/**/*.js",
+      "context/**/*.js",
+      "netlify/**/*.js",
+      "pages/docs/**/*.js",
+      "pages/blog/**/*.js"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/asyncapi/website.git"
@@ -95,14 +104,17 @@
     "yaml": "^2.2.2"
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.11.0",
     "@cypress/react": "^7.0.3",
     "@netlify/functions": "^1.4.0",
     "@netlify/plugin-nextjs": "^4.37.2",
+    "babel-plugin-istanbul": "^6.1.1",
     "cypress": "^10.11.0",
     "dedent": "^0.7.0",
     "eslint": "^7.0.0",
     "eslint-plugin-react": "^7.27.1",
     "inquirer": "^8.2.0",
+    "nyc": "^15.1.0",
     "postcss-import": "^14.1.0"
   }
 }
