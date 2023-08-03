@@ -1,7 +1,13 @@
-on: ["push", "pull_request"]
-name: Test Coverage using Coveralls
-jobs:
-    sonarcloud:
+on: 
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+
+name: Check test coverage
+  jobs:  
+    build:
       runs-on: ubuntu-latest
       steps:
       - uses: actions/checkout@v3
@@ -19,7 +25,6 @@ jobs:
       - name: Test and coverage
         run: npx nyc --reporter lcov npm run build
       - name: Coverage Test report
-        uses: romeovs/lcov-reporter-action@v0.2.16
+        uses: coverallsapp/github-action@master
         with:
-          lcov-file: ./coverage/lcov.info
-          github-token: ${{ secrets.GH_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
