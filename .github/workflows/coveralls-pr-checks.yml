@@ -18,7 +18,7 @@ jobs:
         run: npm install
       - name: Test and coverage
         run: npx nyc --reporter lcov npm run build
-      - name: Coveralls Scan
-        uses: coverallsapp/github-action@master
+      - name: Coverage Test report
+        uses: romeovs/lcov-reporter-action@v0.2.16
         with:
-          github-token: ${{ secrets.GH_TOKEN }}
+          lcov-file: ./coverage/lcov.info
