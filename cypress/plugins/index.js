@@ -1,9 +1,8 @@
-export default (on, config) => {
+module.exports = (on, config) => {
     require('@cypress/code-coverage/task')(on, config)
-  
-    // add other tasks to be registered here
-  
-    // IMPORTANT to return the config object
-    // with the any changed environment variables
+    on(
+      'file:preprocessor',
+      require('@cypress/code-coverage/use-browserify-istanbul')
+    )
     return config
 }
