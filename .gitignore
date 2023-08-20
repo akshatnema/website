@@ -15,4 +15,5 @@ meetings.json
 .env
 .nyc_output
 coverage
+cypress/screenshots
 cypress/videos
