@@ -14,19 +14,29 @@
     "generate:dashboard": "node scripts/dashboard/build-dashboard.js",
     "generate:videos": "node scripts/build-newsroom-videos.js",
     "generate:tools": "node scripts/build-tools.js",
-    "test": "npx cypress run --component",
+    "test": "npx cypress-parallel -s cy:run -t 6 -d cypress/test",
     "release": "echo \"No release to npm for this project\"",
-    "cypress": "cypress open",
-    "cypress-run": "cypress run"
+    "cy:run": "cypress run --component",
+    "cy:open": "cypress open"
   },
   "nyc": {
+    "include": [
+      "components",
+      "pages",
+      "lib",
+      "scripts"
+    ],
     "exclude": [
       ".next/**/*.js",
       "context/**/*.js",
       "netlify/**/*.js",
       "pages/docs/**/*.js",
-      "pages/blog/**/*.js"
-    ]
+      "pages/blog/**/*.js",
+      ".github/**/*js",
+      "cypress/**/*.js",
+      "coverage/**/*.js"
+    ],
+    "all": true
   },
   "repository": {
     "type": "git",
@@ -113,6 +123,7 @@
     "@netlify/plugin-nextjs": "^4.37.2",
     "babel-plugin-istanbul": "^6.1.1",
     "cypress": "^10.11.0",
+    "cypress-parallel": "^0.13.0",
     "dedent": "^0.7.0",
     "eslint": "^7.0.0",
     "eslint-plugin-react": "^7.27.1",

@@ -17,13 +17,11 @@ jobs:
       - name: Use Node.js 16.x
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
-      - name: Use NPM version 8.5.5
-        run: npm install -g npm@8.5.5      
+          node-version: 16.x      
       - name: Install dependencies
         run: npm install
       - name: Test and coverage
-        run: npx nyc --reporter lcov npm run test
+        run: node ./scripts/index.js && npm run test
       - name: Coverage Test report
         uses: coverallsapp/github-action@master
         with:
