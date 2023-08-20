@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Test and coverage
-        run: npx nyc --reporter lcov npm run build
+        run: npx nyc --reporter lcov npm run test
       - name: Coverage Test report
         uses: coverallsapp/github-action@master
         with:
