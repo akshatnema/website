@@ -57,3 +57,7 @@ function App({ Component, pageProps, router }) {
 }
 
 export default App;
+
+
+
+// added comment in code
