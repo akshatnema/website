@@ -9,18 +9,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v3
 
       - name: Check PR Changes for .md files
         id: md-pr-changes
-        uses: tj-actions/changed-files@v42
+        uses: tj-actions/changed-files@v11.7
         with:
           files: |
             **.md
 
       - name: Check PR Changes for non-.md files
         id: non-md-pr-changes
-        uses: tj-actions/changed-files@v42
+        uses: tj-actions/changed-files@v11.7
         with:
           files: |
             !**.md
@@ -31,12 +31,12 @@ jobs:
         run: |
           mdTriagers=$(jq -r '.mdTriagers[]' triagers.json | tr '\n' ' ')
           codeTriagers=$(jq -r '.codeTriagers[]' triagers.json | tr '\n' ' ')
-          echo "md-triagers=$mdTriagers" >> $GITHUB_OUTPUT
-          echo "code-triagers=$codeTriagers" >> $GITHUB_OUTPUT
+          echo "md-triagers=$mdTriagers" >> $GITHUB_ENV
+          echo "code-triagers=$codeTriagers" >> $GITHUB_ENV
 
       - name: Create Comment for non-.md files
         if: steps.non-md-pr-changes.outputs.any_changed == 'true'
-        uses: actions/github-script@v6
+        uses: actions/github-script@v5
         with:
           github-token: ${{ secrets.GH_TOKEN }}
           script: |
@@ -44,13 +44,12 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `The PR contains modifications to `code` files, hence tagging Docs triagers for review and approval.
-              #               cc: ${{ steps.read-triagers-json.outputs.code-triagers }}`
+              body: `The PR contains modifications to code files, hence tagging Docs triagers for review and approval. cc: ${steps.read-triagers-json.outputs.code-triagers}`
             })
 
       - name: Create comment for .md files
         if: steps.md-pr-changes.outputs.any_changed == 'true'
-        uses: actions/github-script@v6
+        uses: actions/github-script@v5
         with:
           github-token: ${{ secrets.GH_TOKEN }}
           script: |
@@ -58,6 +57,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `The PR contains modifications to `.md` files, hence tagging Docs triagers for review and approval.
-              #               cc: ${{ steps.read-triagers-json.outputs.md-triagers }}`
+              body: `The PR contains modifications to .md files, hence tagging Docs triagers for review and approval. cc: ${steps.read-triagers-json.outputs.md-triagers}`
             })
