@@ -23,7 +23,7 @@ jobs:
         uses: tj-actions/changed-files@v11.7
         with:
           files: |
-            **.md
+            !**.md
 
       - name: Use Outputs
         run: |
