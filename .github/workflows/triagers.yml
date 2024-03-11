@@ -18,12 +18,17 @@ jobs:
           files: |
             **.md
 
-      - name: Check PR Changes for non-.md files
+      - name: Check PR Changes for .md files
         id: non-md-pr-changes
         uses: tj-actions/changed-files@v11.7
         with:
           files: |
-            !**.md
+            **.md
+
+      - name: Use Outputs
+        run: |
+          echo "Any changed: ${{ steps.md-pr-changes.outputs.any_changed }}"
+          echo "Any changed: ${{ steps.non-md-pr-changes.outputs.any_changed }}"
 
       - name: Read triagers.json
         if: steps.md-pr-changes.outputs.any_changed == 'true' || steps.non-md-pr-changes.outputs.any_changed == 'true'
