@@ -1,7 +1,7 @@
 name: Notify Triagers
 
 on:
-  pull_request_target:
+  pull_request:
     types: [opened, reopened, synchronize, edited, ready_for_review]
 
 jobs:
@@ -18,7 +18,7 @@ jobs:
           files: |
             **.md
 
-      - name: Check PR Changes for .md files
+      - name: Check PR Changes for non-.md files
         id: non-md-pr-changes
         uses: tj-actions/changed-files@v11.7
         with:
@@ -27,8 +27,8 @@ jobs:
 
       - name: Use Outputs
         run: |
-          echo "Any changed: ${{ steps.md-pr-changes.outputs.any_changed }}"
-          echo "Any changed: ${{ steps.non-md-pr-changes.outputs.any_changed }}"
+          echo "Any changed in .md files: ${{ steps.md-pr-changes.outputs.any_changed }}"
+          echo "Any changed in non-.md files: ${{ steps.non-md-pr-changes.outputs.any_changed }}"
 
       - name: Read triagers.json
         if: steps.md-pr-changes.outputs.any_changed == 'true' || steps.non-md-pr-changes.outputs.any_changed == 'true'
@@ -49,7 +49,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `The PR contains modifications to code files, hence tagging Docs triagers for review and approval. cc: ${steps.read-triagers-json.outputs.code-triagers}`
+              body: `The PR contains modifications to code files, hence tagging Docs triagers for review and approval. cc: ${process.env.code_triagers}`
             })
 
       - name: Create comment for .md files
@@ -62,5 +62,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `The PR contains modifications to .md files, hence tagging Docs triagers for review and approval. cc: ${steps.read-triagers-json.outputs.md-triagers}`
+              body: `The PR contains modifications to .md files, hence tagging Docs triagers for review and approval. cc: ${process.env.md_triagers}`
             })
