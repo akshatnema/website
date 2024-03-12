@@ -60,4 +60,3 @@ export default App;
 
 
 
-// added comment in code
