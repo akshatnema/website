@@ -24,10 +24,9 @@ jobs:
         run: |
           if [[ "${{ steps.commit-message.outputs.commit_message }}" == *"Merge branch"* ]]; then
             echo "Last commit is a merge commit"
-            echo "skip" >> $GITHUB_OUTPUT
+            exit 1
           else
             echo "Last commit message does not contain Merge branch"
-            echo "proceed" >> $GITHUB_OUTPUT
           fi
 
       - name: Check PR Changes for .md files
