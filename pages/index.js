@@ -5,7 +5,6 @@ import { languageDetection } from "../lib/i18n";
 
 
 
-
 function HomePage() {
   const loader = 'img/loaders/loader.png'; // preloader image for the tools
   languageDetection();
