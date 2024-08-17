@@ -11,6 +11,8 @@ Developers familiar with OpenAPI (aka Swagger) for RESTful APIs will see strong 
 Our long-term goal is to make working with EDAs as easy as working with REST APIs. That goes from documentation to code generation, discovery to event management, and beyond. Our 150+ Open-Source (OSS) contributors are EDA enthusiasts from all around the world.
 
 
+ 
+
 The AsyncAPI project started at Hitch (a.k.a. API Changelog). Hitch needed a machine-readable format to describe internal message-driven microservices architecture. The goal was to benefit from it in the same way they had used OpenAPI for their HTTP APIs. Inspired by OpenAPI, [Fran Méndez](https://twitter.com/fmvilas), who worked at Hitch at the time, created the AsyncAPI specification. After publishing the first version, he noticed that he solved not only his problems but the problems of the wider community. Eventually, the AsyncAPI specification and community evolved into the AsyncAPI Initiative, a project now under the umbrella of the Linux Foundation.
 
 
