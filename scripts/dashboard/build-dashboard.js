@@ -6,6 +6,10 @@ const { Queries } = require('./issue-queries');
 let ct = 0;
 let temp = 0;
 
+async function pause(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 async function getHotDiscussions(discussions) {
   // const result = await Promise.all(
   //   discussions.map(async (discussion) => {
@@ -51,6 +55,7 @@ async function getHotDiscussions(discussions) {
     const batchResults = await Promise.all(
       batch.map(async (discussion) => {
         try {
+          await pause(1000);
           const isPR = discussion.__typename === 'PullRequest';
           if (discussion.comments.pageInfo.hasNextPage) {
             const fetchedDiscussion = await getDiscussionByID(isPR, discussion.id);
@@ -177,11 +182,12 @@ async function getDiscussionByID(isPR, id) {
 }
 async function start() {
   try {
-    const [issues, PRs, rawGoodFirstIssues] = await Promise.all([
-      getDiscussions(Queries.hotDiscussionsIssues, 20),
-      getDiscussions(Queries.hotDiscussionsPullRequests, 20),
-      getDiscussions(Queries.goodFirstIssues, 20)
-    ]);
+    const issues = await getDiscussions(Queries.hotDiscussionsIssues, 20);
+    await pause(1000);
+    const PRs = await getDiscussions(Queries.hotDiscussionsPullRequests, 20);
+    await pause(1000);
+    const rawGoodFirstIssues = await getDiscussions(Queries.goodFirstIssues, 20);
+    await pause(1000);
     const discussions = issues.concat(PRs);
     const [hotDiscussions, goodFirstIssues] = await Promise.all([
       getHotDiscussions(discussions),
