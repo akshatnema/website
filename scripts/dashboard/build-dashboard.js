@@ -29,6 +29,8 @@ async function getDiscussions(query, pageSize, endCursor = null) {
       );
     }
 
+    await pause(1000);
+
     const { hasNextPage } = result.search.pageInfo;
 
     if (!hasNextPage) {
