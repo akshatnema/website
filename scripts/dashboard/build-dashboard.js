@@ -29,7 +29,7 @@ async function getDiscussions(query, pageSize, endCursor = null) {
       );
     }
 
-    await pause(1000);
+    await pause(500);
 
     const { hasNextPage } = result.search.pageInfo;
 
@@ -69,7 +69,7 @@ async function getHotDiscussions(discussions) {
     const batchResults = await Promise.all(
       batch.map(async (discussion) => {
         try {
-          await pause(1000);
+          await pause(500);
           // eslint-disable-next-line no-underscore-dangle
           const isPR = discussion.__typename === 'PullRequest';
           if (discussion.comments.pageInfo.hasNextPage) {
@@ -143,9 +143,11 @@ function monthsSince(date) {
 
 async function start() {
   try {
-    const issues = await getDiscussions(Queries.hotDiscussionsIssues, 20);
-    const PRs = await getDiscussions(Queries.hotDiscussionsPullRequests, 20);
-    const rawGoodFirstIssues = await getDiscussions(Queries.goodFirstIssues, 20);
+    const [issues, PRs, rawGoodFirstIssues] = await Promise.all([
+      getDiscussions(Queries.hotDiscussionsIssues, 20),
+      getDiscussions(Queries.hotDiscussionsPullRequests, 20),
+      getDiscussions(Queries.goodFirstIssues, 20),
+    ]);
     const discussions = issues.concat(PRs);
     const [hotDiscussions, goodFirstIssues] = await Promise.all([
       getHotDiscussions(discussions),
