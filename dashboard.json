@@ -17,44 +17,6 @@
       "score": 34.46095064991105
     },
     {
-      "id": "PR_kwDOFLhIt85oVQqh",
-      "isPR": true,
-      "isAssigned": false,
-      "title": "feat: docs automation for website",
-      "author": "AnimeshKumar923",
-      "resourcePath": "/asyncapi/community/pull/1082",
-      "repo": "asyncapi/community",
-      "labels": [],
-      "score": 18.37917367995256
-    },
-    {
-      "id": "PR_kwDOFLhIt855u7Eb",
-      "isPR": true,
-      "isAssigned": false,
-      "title": "docs: added community marketing strategy doc",
-      "author": "iambami",
-      "resourcePath": "/asyncapi/community/pull/1358",
-      "repo": "asyncapi/community",
-      "labels": [],
-      "score": 17.804824502454043
-    },
-    {
-      "id": "I_kwDOCVQpZM5M_dcV",
-      "isPR": false,
-      "isAssigned": true,
-      "title": "DocsUI: Messages Object output",
-      "author": "mcturco",
-      "resourcePath": "/asyncapi/asyncapi-react/issues/618",
-      "repo": "asyncapi/asyncapi-react",
-      "labels": [
-        {
-          "name": "stale",
-          "color": "ededed"
-        }
-      ],
-      "score": 17.517649913704783
-    },
-    {
       "id": "I_kwDOBW5R_c6VPMio",
       "isPR": false,
       "isAssigned": true,
@@ -76,18 +38,56 @@
           "color": "0e8a16"
         }
       ],
-      "score": 15.220253203710714
+      "score": 18.666348268701817
     },
     {
-      "id": "PR_kwDOBW5R_c55uxWu",
+      "id": "PR_kwDOFLhIt85oVQqh",
       "isPR": true,
       "isAssigned": false,
-      "title": "feat: add codecov to the project",
+      "title": "feat: docs automation for website",
+      "author": "AnimeshKumar923",
+      "resourcePath": "/asyncapi/community/pull/1082",
+      "repo": "asyncapi/community",
+      "labels": [],
+      "score": 18.37917367995256
+    },
+    {
+      "id": "PR_kwDOFLhIt855u7Eb",
+      "isPR": true,
+      "isAssigned": false,
+      "title": "docs: added community marketing strategy doc",
+      "author": "iambami",
+      "resourcePath": "/asyncapi/community/pull/1358",
+      "repo": "asyncapi/community",
+      "labels": [],
+      "score": 18.091999091203302
+    },
+    {
+      "id": "I_kwDOCVQpZM5M_dcV",
+      "isPR": false,
+      "isAssigned": true,
+      "title": "DocsUI: Messages Object output",
+      "author": "mcturco",
+      "resourcePath": "/asyncapi/asyncapi-react/issues/618",
+      "repo": "asyncapi/asyncapi-react",
+      "labels": [
+        {
+          "name": "stale",
+          "color": "ededed"
+        }
+      ],
+      "score": 17.517649913704783
+    },
+    {
+      "id": "PR_kwDOBW5R_c52BRgf",
+      "isPR": true,
+      "isAssigned": false,
+      "title": "feat: added test for build-rss.js",
       "author": "vishvamsinh28",
-      "resourcePath": "/asyncapi/website/pull/3168",
+      "resourcePath": "/asyncapi/website/pull/3101",
       "repo": "asyncapi/website",
       "labels": [],
-      "score": 15.220253203710714
+      "score": 16.08177696995849
     },
     {
       "id": "I_kwDOFLhIt85bebeO",
@@ -101,15 +101,35 @@
       "score": 14.933078614961456
     },
     {
-      "id": "PR_kwDOBW5R_c52BRgf",
+      "id": "I_kwDOGQYLdM5AX1lK",
+      "isPR": false,
+      "isAssigned": true,
+      "title": "Brand Refresh: Mascot",
+      "author": "mcturco",
+      "resourcePath": "/asyncapi/brand/issues/12",
+      "repo": "asyncapi/brand",
+      "labels": [
+        {
+          "name": ":art: design",
+          "color": "0D67D3"
+        },
+        {
+          "name": "bounty",
+          "color": "0E8A16"
+        }
+      ],
+      "score": 14.933078614961456
+    },
+    {
+      "id": "PR_kwDOCHlHJM54CmhW",
       "isPR": true,
       "isAssigned": false,
-      "title": "feat: added test for build-rss.js",
-      "author": "vishvamsinh28",
-      "resourcePath": "/asyncapi/website/pull/3101",
-      "repo": "asyncapi/website",
+      "title": "docs: added the migration guide for depreciation of nunjucks ",
+      "author": "Gmin2",
+      "resourcePath": "/asyncapi/generator/pull/1253",
+      "repo": "asyncapi/generator",
       "labels": [],
-      "score": 14.933078614961456
+      "score": 13.497205671215161
     },
     {
       "id": "I_kwDODou01c5o2x-Z",
@@ -123,15 +143,15 @@
       "score": 13.210031082465903
     },
     {
-      "id": "PR_kwDOBW5R_c58-8xN",
+      "id": "PR_kwDOBW5R_c5_HuQ0",
       "isPR": true,
       "isAssigned": false,
-      "title": "fix: remove hydration errors",
-      "author": "akshatnema",
-      "resourcePath": "/asyncapi/website/pull/3262",
+      "title": "test: add markdown tests",
+      "author": "anshgoyalevil",
+      "resourcePath": "/asyncapi/website/pull/3301",
       "repo": "asyncapi/website",
       "labels": [],
-      "score": 13.210031082465903
+      "score": 12.922856493716644
     },
     {
       "id": "I_kwDOFLhIt85xI2wH",
@@ -148,20 +168,28 @@
         }
       ],
       "score": 12.635681904967385
-    },
-    {
-      "id": "PR_kwDODou01c503Pr-",
-      "isPR": true,
-      "isAssigned": false,
-      "title": "feat: make the open graph tags dynamic based on the ``base64`` and ``url`` query parameters",
-      "author": "helios2003",
-      "resourcePath": "/asyncapi/studio/pull/1122",
-      "repo": "asyncapi/studio",
-      "labels": [],
-      "score": 12.635681904967385
     }
   ],
   "goodFirstIssues": [
+    {
+      "id": "I_kwDOBW5R_c6aKzLD",
+      "title": "[FEATURE] Add coderabbit configuration to the repo",
+      "isAssigned": true,
+      "resourcePath": "/asyncapi/website/issues/3293",
+      "repo": "asyncapi/website",
+      "author": "akshatnema",
+      "area": "Unknown",
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "84b6eb"
+        },
+        {
+          "name": "Hacktoberfest",
+          "color": "FF8AE2"
+        }
+      ]
+    },
     {
       "id": "I_kwDOCHlHJM6ZrKEr",
       "title": "[📑 Docs]: Fix the relative paths of `index.md` & `migration.md` files.",
@@ -523,52 +551,6 @@
       ]
     },
     {
-      "id": "I_kwDOE8Qh3857KYj1",
-      "title": "Add input document for OpenAPI",
-      "isAssigned": false,
-      "resourcePath": "/asyncapi/modelina/issues/1723",
-      "repo": "asyncapi/modelina",
-      "author": "jonaslagoni",
-      "area": "Unknown",
-      "labels": [
-        {
-          "name": "enhancement",
-          "color": "a2eeef"
-        },
-        {
-          "name": "stale",
-          "color": "ededed"
-        },
-        {
-          "name": "📑 docs",
-          "color": "E50E99"
-        }
-      ]
-    },
-    {
-      "id": "I_kwDOE8Qh3857KYQc",
-      "title": "Add input document for AsyncAPI",
-      "isAssigned": false,
-      "resourcePath": "/asyncapi/modelina/issues/1722",
-      "repo": "asyncapi/modelina",
-      "author": "jonaslagoni",
-      "area": "Unknown",
-      "labels": [
-        {
-          "name": "enhancement",
-          "color": "a2eeef"
-        },
-        {
-          "name": "stale",
-          "color": "ededed"
-        },
-        {
-          "name": "📑 docs",
-          "color": "E50E99"
-        }
-      ]
-    },
-    {
       "id": "I_kwDODyzcIc54mr9C",
       "title": "Fix wrong format for Co-authored automerged commits + pagination",
       "isAssigned": false,
@@ -644,6 +626,10 @@
         {
           "name": "bug",
           "color": "d73a4a"
+        },
+        {
+          "name": "stale",
+          "color": "ededed"
         }
       ]
     },
@@ -824,7 +810,7 @@
     {
       "id": "I_kwDOBW5R_c5eFaBF",
       "title": "Add proper dropdowns to the Filters Select Menu",
-      "isAssigned": false,
+      "isAssigned": true,
       "resourcePath": "/asyncapi/website/issues/1318",
       "repo": "asyncapi/website",
       "author": "akshatnema",
