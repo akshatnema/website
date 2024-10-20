@@ -69,7 +69,6 @@ async function getHotDiscussions(discussions) {
     const batchResults = await Promise.all(
       batch.map(async (discussion) => {
         try {
-          await pause(500);
           // eslint-disable-next-line no-underscore-dangle
           const isPR = discussion.__typename === 'PullRequest';
           if (discussion.comments.pageInfo.hasNextPage) {
@@ -146,7 +145,7 @@ async function start() {
     const [issues, PRs, rawGoodFirstIssues] = await Promise.all([
       getDiscussions(Queries.hotDiscussionsIssues, 20),
       getDiscussions(Queries.hotDiscussionsPullRequests, 20),
-      getDiscussions(Queries.goodFirstIssues, 20),
+      getDiscussions(Queries.goodFirstIssues, 20)
     ]);
     const discussions = issues.concat(PRs);
     const [hotDiscussions, goodFirstIssues] = await Promise.all([
