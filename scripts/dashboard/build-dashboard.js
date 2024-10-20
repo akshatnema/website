@@ -29,7 +29,7 @@ async function getDiscussions(query, pageSize, endCursor = null) {
       );
     }
 
-    await pause(200);
+    await pause(500);
 
     const { hasNextPage } = result.search.pageInfo;
 
@@ -63,8 +63,8 @@ async function getDiscussionByID(isPR, id) {
 async function getHotDiscussions(discussions) {
   const result = [];
 
-  for (let i = 0; i < discussions.length; i += 5) {
-    const batch = discussions.slice(i, i + 5);
+  for (let i = 0; i < discussions.length; i += 10) {
+    const batch = discussions.slice(i, i + 10);
     // eslint-disable-next-line no-await-in-loop
     const batchResults = await Promise.all(
       batch.map(async (discussion) => {
