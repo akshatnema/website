@@ -67,6 +67,7 @@ async function getHotDiscussions(discussions) {
     const batchResults = await Promise.all(
       batch.map(async (discussion) => {
         try {
+          await pause(1000);
           // eslint-disable-next-line no-underscore-dangle
           const isPR = discussion.__typename === 'PullRequest';
           if (discussion.comments.pageInfo.hasNextPage) {
@@ -103,8 +104,6 @@ async function getHotDiscussions(discussions) {
     );
     result.push(...batchResults);
 
-    // eslint-disable-next-line no-await-in-loop
-    await pause(1000);
   }
   result.sort((ElemA, ElemB) => ElemB.score - ElemA.score);
   const filteredResult = result.filter((issue) => issue.author !== 'asyncapi-bot');
