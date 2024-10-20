@@ -29,7 +29,7 @@ async function getDiscussions(query, pageSize, endCursor = null) {
       );
     }
 
-    await pause(500);
+    await pause(200);
 
     const { hasNextPage } = result.search.pageInfo;
 
