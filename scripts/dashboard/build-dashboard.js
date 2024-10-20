@@ -143,6 +143,7 @@ function monthsSince(date) {
 async function start() {
   try {
     const issues = await getDiscussions(Queries.hotDiscussionsIssues, 20);
+    await pause(1000);
     const PRs = await getDiscussions(Queries.hotDiscussionsPullRequests, 20);
     await pause(1000);
     const rawGoodFirstIssues = await getDiscussions(Queries.goodFirstIssues, 20);
