@@ -19,8 +19,6 @@ async function getDiscussions(query, pageSize, endCursor = null) {
       }
     });
 
-    temp -= 1;
-
     if (result.rateLimit.remaining <= 100) {
       console.log(
         `[WARNING] GitHub GraphQL rateLimit`,
