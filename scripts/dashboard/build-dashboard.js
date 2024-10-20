@@ -63,8 +63,8 @@ async function getDiscussionByID(isPR, id) {
 async function getHotDiscussions(discussions) {
   const result = [];
 
-  for (let i = 0; i < discussions.length; i += 10) {
-    const batch = discussions.slice(i, i + 10);
+  for (let i = 0; i < discussions.length; i += 7) {
+    const batch = discussions.slice(i, i + 7);
     // eslint-disable-next-line no-await-in-loop
     const batchResults = await Promise.all(
       batch.map(async (discussion) => {
