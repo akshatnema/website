@@ -8,7 +8,6 @@ on:
 
 jobs:
   meetings:
-      if: github.repository == 'asyncapi/website'
       env:
         CALENDAR_ID: ${{ secrets.CALENDAR_ID }}
         CALENDAR_SERVICE_ACCOUNT: ${{ secrets.CALENDAR_SERVICE_ACCOUNT }}
@@ -35,7 +34,7 @@ jobs:
           run: npm install
 
         - name: Regenerate
-          run: npm run generate:meetings && npm run generate:videos && npm run generate:dashboard
+          run: npm run generate:dashboard
 
         - name: Create Pull Request with new meetings.json, newsroom-videos.json and dashboard.json version
           uses: peter-evans/create-pull-request@38e0b6e68b4c852a5500a94740f0e535e0d7ba54 # use 4.2.4 https://github.com/peter-evans/create-pull-request/releases/tag/v4.2.4
